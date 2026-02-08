@@ -1,0 +1,22 @@
+# Environment variables
+.env
+
+# Runtime chat data
+data/history.json
+data/chats/
+data/chats_index.json
+
+# VS Code settings
+.vscode/
+
+# OS files
+.DS_Store
+
+# Python cachegit status
+
+__pycache__/
+*.pyc
+
+# Virtual environments (optional but good)
+venv/
+.env/

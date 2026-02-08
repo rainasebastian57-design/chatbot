@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>System_Bot</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="layout">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+      <div class="side-top">
+        <div class="brand">System_Bot</div>
+        <button id="newChatBtn" class="new-chat">+ New chat</button>
+      </div>
+
+      <div id="chatList" class="chat-list"></div>
+    </aside>
+
+    <!-- RIGHT CHAT PANEL -->
+    <main class="panel">
+      <div class="chat-header">
+        <div class="bot-info">
+          <div class="bot-icon">🤖</div>
+          <div class="bot-meta">
+            <div id="chatTitle" class="bot-name">New chat</div>
+            <div class="bot-status"><span class="dot"></span> Online now</div>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button id="renameBtn" class="icon-btn" title="Rename">✎</button>
+          <button id="deleteBtn" class="icon-btn" title="Delete">🗑</button>
+        </div>
+      </div>
+
+      <div id="chat" class="chat-body"></div>
+
+      <div class="quick-actions">
+        <button class="pill" data-quick="Inquire">Inquire</button>
+        <button class="pill" data-quick="Support">Support</button>
+        <button class="pill" data-quick="Account">Account</button>
+      </div>
+
+      <form id="form" class="chat-input">
+        <input id="input" type="text" placeholder="Reply…" autocomplete="off" />
+        <button id="send" type="submit" class="send-btn">⚡</button>
+      </form>
+    </main>
+
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
