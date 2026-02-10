@@ -2,6 +2,7 @@ import json
 import os
 import uuid
 from datetime import datetime
+from pathlib import Path  # Add this
 
 DATA_DIR = os.path.join(BASE_DIR, "data")
 CHATS_DIR = os.path.join(DATA_DIR, "chats")
