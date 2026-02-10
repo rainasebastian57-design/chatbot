@@ -3,7 +3,7 @@ import os
 import uuid
 from datetime import datetime
 
-DATA_DIR = "data"
+DATA_DIR = os.path.join(BASE_DIR, "data")
 CHATS_DIR = os.path.join(DATA_DIR, "chats")
 INDEX_FILE = os.path.join(DATA_DIR, "chats_index.json")
 
