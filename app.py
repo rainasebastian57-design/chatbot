@@ -1,13 +1,22 @@
+import os  # Make sure this is imported
 from flask import Flask, render_template, request, jsonify
 from google import genai
 
-from config import GEMINI_API_KEY
+# REMOVE THIS LINE:
+# from config import GEMINI_API_KEY 
+
+# ADD THIS LINE:
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
+
 from search import serpapi_search
 from chat_store import ChatStore
 
 app = Flask(__name__)
 
-# Gemini client
+# Verify the key exists before starting the client
+if not GEMINI_API_KEY:
+    print("CRITICAL ERROR: GEMINI_API_KEY not found in Environment Variables")
+    
 client = genai.Client(api_key=GEMINI_API_KEY)
 
 # Multi-chat storage

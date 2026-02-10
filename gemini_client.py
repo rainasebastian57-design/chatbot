@@ -1,7 +1,9 @@
 from google import genai
 
+from config import GEMINI_API_KEY
+
 # Initialize Gemini client
-client = genai.Client(api_key="AIzaSyA7yGmrvwKpGOofKzXX6rs3WEFr36NL30g")
+client = genai.Client(api_key=GEMINI_API_KEY)
 
 def ask_gemini(conversation, user_input):
     # Add user message to memory
