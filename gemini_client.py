@@ -6,19 +6,18 @@ from config import GEMINI_API_KEY
 client = genai.Client(api_key=GEMINI_API_KEY)
 
 def ask_gemini(conversation, user_input):
-    # Add user message to memory
     conversation.add_user_message(user_input)
 
-    # Call Gemini with Google Search grounding
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-2.0-flash", # Fixed model name
         contents=conversation.get_history(),
-        tools=[{"google_search": {}}]   # ✅ real-time Google Search
+        config={"tools": [{"google_search": {}}]} # Updated syntax for SDK
     )
 
-    reply = response.text
-
-    # Store Gemini response in memory
+    # Use getattr or a simple if-check to prevent crashes
+    reply = response.text if response.text else "I'm sorry, I couldn't generate a response."
+    
     conversation.add_model_message(reply)
-
     return reply
+
+    

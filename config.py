@@ -1,18 +1,16 @@
 import os
-from dotenv import load_dotenv
+from pathlib import Path
 
-# Load .env file
-load_dotenv()
+# 1. Define BASE_DIR to prevent the NameError in other files
+BASE_DIR = Path(__file__).resolve().parent
 
-# Gemini API Key
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+# 2. Get keys directly from the environment (Render Environment Group)
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
+SERPAPI_KEY = os.environ.get("SERPAPI_KEY")
 
-# SerpAPI Key (Google Search)
-SERPAPI_KEY = os.getenv("SERPAPI_KEY")
-
-# Basic validation (optional but good practice)
+# 3. Validation that won't crash the build process unnecessarily
 if not GEMINI_API_KEY:
-    raise ValueError("❌ GEMINI_API_KEY not found in .env file")
+    print("⚠️ WARNING: GEMINI_API_KEY is not set.")
 
 if not SERPAPI_KEY:
-    raise ValueError("❌ SERPAPI_KEY not found in .env file")
+    print("⚠️ WARNING: SERPAPI_KEY is not set.")
